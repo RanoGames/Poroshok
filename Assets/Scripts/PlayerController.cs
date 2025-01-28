@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(direction * Time.deltaTime);
 
         //Перемещение камеры за телом
-        transform.position = new Vector3(Body.position.x, Body.position.y + 0.5f, Body.position.z);
+        transform.position = new Vector3(Body.position.x, Body.position.y + 1, Body.position.z);
 
         // Поворот камеры
         float rotateX = Input.GetAxis("Mouse X") * mouseSense;
