@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpf = 30f;
     [SerializeField] float minXRotation = -70f;
     [SerializeField] float maxXRotation = 70f;
+    [SerializeField] Animator CameraAnim;
+    [SerializeField] GameObject Crosshair;
 
     private float currentXRotation = 0f;
     Vector3 direction;
@@ -23,15 +21,19 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void Disable()
+    {
+        CameraAnim.enabled = false;
+        Crosshair.SetActive(true);
+    }
+
     void Update()
     {
-        //Вращение тела от камера
         Quaternion cameraRotation = transform.rotation;
         float yRotation = cameraRotation.eulerAngles.y;
         Quaternion newRotation = Quaternion.Euler(0, yRotation, 0);
         Body.transform.rotation = newRotation;
 
-        //Движение тела
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         if (controller.isGrounded)
@@ -42,18 +44,14 @@ public class PlayerController : MonoBehaviour
         direction.y -= gravity * Time.deltaTime;
         controller.Move(direction * Time.deltaTime);
 
-        //Перемещение камеры за телом
         transform.position = new Vector3(Body.position.x, Body.position.y + 1, Body.position.z);
 
-        // Поворот камеры
         float rotateX = Input.GetAxis("Mouse X") * mouseSense;
         float rotateY = Input.GetAxis("Mouse Y") * mouseSense;
 
-        // Обновление текущего угла поворота по оси X с ограничениями
         currentXRotation -= rotateY;
         currentXRotation = Mathf.Clamp(currentXRotation, minXRotation, maxXRotation);
 
-        // Применение ограниченного угла поворота к камере
         Vector3 rotPlayer = transform.rotation.eulerAngles;
         rotPlayer.x = currentXRotation;
         rotPlayer.z = 0;
