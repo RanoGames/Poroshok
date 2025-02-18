@@ -22,6 +22,8 @@ MonoBehaviour:
   m_Scenes:
   - m_enabled: 1
     m_path: Assets/Scenes/SampleScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Scene 2.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -36,7 +38,7 @@ MonoBehaviour:
     - line: '|   targetDevice: 2'
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
-    - line: '|   companyName: DefaultCompany'
+    - line: '|   companyName: SigmaCompany'
     - line: '|   productName: Poroshok'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
@@ -45,11 +47,11 @@ MonoBehaviour:
     - line: '|   m_ShowUnitySplashScreen: 1'
     - line: '|   m_ShowUnitySplashLogo: 1'
     - line: '|   m_SplashScreenOverlayOpacity: 1'
-    - line: '|   m_SplashScreenAnimation: 1'
+    - line: '|   m_SplashScreenAnimation: 2'
     - line: '|   m_SplashScreenLogoStyle: 1'
     - line: '|   m_SplashScreenDrawMode: 0'
     - line: '|   m_SplashScreenBackgroundAnimationZoom: 1'
-    - line: '|   m_SplashScreenLogoAnimationZoom: 1'
+    - line: '|   m_SplashScreenLogoAnimationZoom: 0.246'
     - line: '|   m_SplashScreenBackgroundLandscapeAspect: 1'
     - line: '|   m_SplashScreenBackgroundPortraitAspect: 1'
     - line: '|   m_SplashScreenBackgroundLandscapeUvs:'
@@ -64,8 +66,15 @@ MonoBehaviour:
     - line: '|     y: 0'
     - line: '|     width: 1'
     - line: '|     height: 1'
-    - line: '|   m_SplashScreenLogos: []'
-    - line: '|   m_VirtualRealitySplashScreen: {instanceID: 0}'
+    - line: '|   m_SplashScreenLogos:'
+    - line: '|   - logo: {fileID: 1639317221, guid: 12780053016b0f3469c52a6cf8f90f63,
+        type: 3}'
+    - line: '|     duration: 2'
+    - line: '|   - logo: {fileID: -1764195852, guid: 6b4b348c0e0b8974d8c6efdab39ef197,
+        type: 3}'
+    - line: '|     duration: 2'
+    - line: '|   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 2031eec1174dd804b8cd4e188476f29c,
+        type: 3}'
     - line: '|   m_HolographicTrackingLossScreen: {instanceID: 0}'
     - line: '|   defaultScreenWidth: 1920'
     - line: '|   defaultScreenHeight: 1080'
@@ -311,7 +320,15 @@ MonoBehaviour:
     - line: '|   AndroidAppBundleSizeToValidate: 150'
     - line: '|   AndroidReportGooglePlayAppDependencies: 1'
     - line: '|   androidSymbolsSizeThreshold: 800'
-    - line: '|   m_BuildTargetIcons: []'
+    - line: '|   m_BuildTargetIcons:'
+    - line: '|   - m_BuildTarget: '
+    - line: '|     m_Icons:'
+    - line: '|     - serializedVersion: 2'
+    - line: '|       m_Icon: {fileID: 2800000, guid: e432fe0aad38e184e943564f4a5aed63,
+        type: 3}'
+    - line: '|       m_Width: 128'
+    - line: '|       m_Height: 128'
+    - line: '|       m_Kind: 0'
     - line: '|   m_BuildTargetPlatformIcons: []'
     - line: '|   m_BuildTargetBatching:'
     - line: '|   - m_BuildTarget: Standalone'
@@ -374,6 +391,9 @@ MonoBehaviour:
     - line: '|     m_Automatic: 1'
     - line: '|   - m_BuildTarget: WebGLSupport'
     - line: '|     m_APIs: 0b000000'
+    - line: '|     m_Automatic: 1'
+    - line: '|   - m_BuildTarget: WindowsStandaloneSupport'
+    - line: '|     m_APIs: 02000000'
     - line: '|     m_Automatic: 1'
     - line: '|   m_BuildTargetVRSettings:'
     - line: '|   - m_BuildTarget: Standalone'
@@ -647,7 +667,8 @@ MonoBehaviour:
     - line: '|   ps4IncludedModules: []'
     - line: '|   ps4attribVROutputEnabled: 0'
     - line: '|   monoEnv: '
-    - line: '|   splashScreenBackgroundSourceLandscape: {instanceID: 0}'
+    - line: '|   splashScreenBackgroundSourceLandscape: {fileID: -1764195852, guid:
+        6b4b348c0e0b8974d8c6efdab39ef197, type: 3}'
     - line: '|   splashScreenBackgroundSourcePortrait: {instanceID: 0}'
     - line: '|   blurSplashScreenBackground: 1'
     - line: '|   spritePackerPolicy: '
@@ -682,8 +703,10 @@ MonoBehaviour:
     - line: '|   scriptingDefineSymbols: {}'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
-    - line: '|   scriptingBackend: {}'
-    - line: '|   il2cppCompilerConfiguration: {}'
+    - line: '|   scriptingBackend:'
+    - line: '|     Standalone: 1'
+    - line: '|   il2cppCompilerConfiguration:'
+    - line: '|     Standalone: 1'
     - line: '|   il2cppCodeGeneration: {}'
     - line: '|   il2cppStacktraceInformation: {}'
     - line: '|   managedStrippingLevel:'
@@ -710,7 +733,7 @@ MonoBehaviour:
     - line: '|   gcIncremental: 1'
     - line: '|   gcWBarrierValidation: 0'
     - line: '|   apiCompatibilityLevelPerPlatform: {}'
-    - line: '|   editorAssembliesCompatibilityLevel: 1'
+    - line: '|   editorAssembliesCompatibilityLevel: 2'
     - line: '|   m_RenderingPath: 1'
     - line: '|   m_MobileRenderingPath: 1'
     - line: '|   metroPackageName: Porosho'
@@ -790,7 +813,7 @@ MonoBehaviour:
     - line: '|   hmiCpuConfiguration: '
     - line: '|   hmiLogStartupTiming: 0'
     - line: '|   qnxGraphicConfPath: '
-    - line: '|   apiCompatibilityLevel: 6'
+    - line: '|   apiCompatibilityLevel: 3'
     - line: '|   captureStartupLogs: {}'
     - line: '|   activeInputHandler: 0'
     - line: '|   windowsGamepadBackendHint: 0'

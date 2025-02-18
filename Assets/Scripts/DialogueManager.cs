@@ -9,24 +9,17 @@ public class DialogueManager : MonoBehaviour
     public AudioClip[] otherClip;
     public AudioSource audioS;
     private int currentDialogueIndex = 0; // Индекс текущего диалога
-    // [SerializeField] AudioSource audioSource;
     [SerializeField] Animator CameraAnim;
 
     void Start()
     {
-      
         // Начинаем с первого диалога
         ShowDialogue();
-
     }
 
     void Update()
     {
-        // Проверяем нажатие ЛКМ
-        if (Input.GetMouseButtonDown(0)) // 0 - ЛКМ
-        {
-            NextDialogue();
-        }
+        
     }
 
     void ShowDialogue()
@@ -54,6 +47,8 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter; // Добавляем букву к тексту
             yield return new WaitForSeconds(0.05f); // Задержка между буквами (можно настроить)
         }
+        yield return new WaitForSeconds(3f); // Задержка перед переходом к следующему диалогу
+        NextDialogue();
     }
 
     void NextDialogue()
@@ -62,13 +57,18 @@ public class DialogueManager : MonoBehaviour
         ShowDialogue();
     }
 
+    void SkipDialogue()
+    {
+        // Можно пропустить текущий диалог и сразу перейти к следующему
+        StopAllCoroutines(); // Останавливаем текущий тип текста
+        NextDialogue(); // Переходим к следующему диалогу
+    }
+
     void EndDialogue()
     {
         gameObject.SetActive(false);
         // Логика завершения диалога (например, переход к следующей сцене или что-то ещё)
         Debug.Log("Dialogue ended");
         CameraAnim.enabled = false;
-
-
     }
 }
