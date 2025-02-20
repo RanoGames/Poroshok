@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text dialogueText; // Ссылка на текстовое поле
+    public TMP_Text dialogueText; // Ссылка на текстовое поле
     public string[] dialogues; // Массив строк для диалога
     public AudioClip[] otherClip;
     public AudioSource audioS;

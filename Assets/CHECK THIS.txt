@@ -1,0 +1,32 @@
+using UnityEngine;
+using UnityEngine.SceneManagement; // Не забудьте подключить этот namespace для работы со сценами
+using UnityEngine.UI; // Для работы с UI элементами
+
+public class SceneSwitcher : MonoBehaviour
+{
+    public Button switchButton; // Ссылка на кнопку
+
+    private void Start()
+    {
+        // Привязываем метод к событию нажатия кнопки
+        if (switchButton != null)
+        {
+            switchButton.onClick.AddListener(OnButtonClick);
+        }
+    }
+
+    private void OnButtonClick()
+    {
+        // Запускаем корутину для переключения сцены через 5 секунд
+        StartCoroutine(SwitchSceneAfterDelay(5f));
+    }
+
+    private IEnumerator SwitchSceneAfterDelay(float delay)
+    {
+        // Ждем указанное количество секунд
+        yield return new WaitForSeconds(delay);
+        
+        // Переключаем сцену. Убедитесь, что вы указали правильное имя сцены.
+        SceneManager.LoadScene("ИмяВашейСцены"); // Замените "ИмяВашейСцены" на имя сцены, которую вы хотите загрузить
+    }
+}
